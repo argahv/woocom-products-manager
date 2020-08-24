@@ -1,1 +1,1 @@
-# woocom-products-manager
+# An application for managing and viewing the products, orders, reports and coupons
