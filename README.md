@@ -1,1 +1,1 @@
-# An application for managing and viewing the products, orders, reports and coupons
+# An application for managing and viewing the products, orders, reports and coupons of an E-commerce site made using WooCommerce
