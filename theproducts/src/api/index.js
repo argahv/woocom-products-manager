@@ -13,6 +13,9 @@ export const api = axios.create({
 
 export const productListGet = (query) => api.get('api/v1/listProducts', query);
 
+export const productCategoriesGet = (query) =>
+  api.get('api/v1/product-categories-list', query);
+
 // export const loginPost = (data) => api.post("api/login", data);
 
 // export const logoutGet = () => api.get("api/logout");

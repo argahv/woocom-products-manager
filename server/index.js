@@ -36,7 +36,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // import Routes here
-require("./routes/listProducts")(app, wooApi);
+require("./routes/products/list-products")(app, wooApi);
+require("./routes/products/create-product")(app, wooApi);
+
+require("./routes/product-category/list-categories")(app, wooApi);
 
 const PORT = process.env.PORT || 5000;
 

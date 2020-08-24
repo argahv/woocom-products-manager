@@ -1,6 +1,5 @@
 import React from 'react';
 import {Icon} from '@ui-kitten/components';
-import RNIcon from 'react-native-vector-icons';
 
 export const BackIcon = (style) => <Icon {...style} name="info-outline" />;
 

@@ -1,9 +1,9 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import ReduxThunk from "redux-thunk";
-import { persistStore, persistReducer, createTransform } from "redux-persist";
-import AsyncStorage from "@react-native-community/async-storage";
-import rootReducer from "./";
-import { api } from "../api";
+import {createStore, applyMiddleware, compose} from 'redux';
+import ReduxThunk from 'redux-thunk';
+import {persistStore, persistReducer, createTransform} from 'redux-persist';
+import AsyncStorage from '@react-native-community/async-storage';
+import rootReducer from './';
+import {api} from '../api';
 
 const SetTransform = createTransform(
   undefined,
@@ -12,23 +12,23 @@ const SetTransform = createTransform(
     // app initial api setup on awake/restore of store
     if (outboundState && outboundState.baseUrl) {
       api.defaults.baseURL = `${
-        process.env.NODE_ENV === "production" ? "https" : "http"
+        process.env.NODE_ENV === 'production' ? 'https' : 'http'
       }://${outboundState.baseUrl}`;
       if (outboundState.token) {
         api.defaults.headers.common.Authorization = outboundState.token;
       }
     }
-    return { ...outboundState };
+    return {...outboundState};
   },
   // define which reducers this transform gets called for.
-  { whitelist: ["global", "profile"] }
+  {whitelist: ['global', 'productAdd']},
 );
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage: AsyncStorage,
   transforms: [SetTransform],
-  blacklist: [""],
+  blacklist: [''],
 };
 
 const configureStore = () => {
@@ -37,7 +37,7 @@ const configureStore = () => {
 
   const middlewares = [ReduxThunk];
   if (__DEV__) {
-    const createDebugger = require("redux-flipper").default;
+    const createDebugger = require('redux-flipper').default;
     middlewares.push(createDebugger());
   }
   const enhancers = [applyMiddleware(...middlewares)];
@@ -47,7 +47,7 @@ const configureStore = () => {
   const persistor = persistStore(store);
   // persistor.purge();
 
-  return { store, persistor };
+  return {store, persistor};
 };
 
 export default configureStore;
