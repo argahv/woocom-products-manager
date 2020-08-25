@@ -8,6 +8,7 @@ export const INITIAL_STATE = {
     name: '',
     categories: [],
   },
+  error: {},
 };
 
 const reducer = (state = INITIAL_STATE, action) =>
@@ -19,6 +20,17 @@ const reducer = (state = INITIAL_STATE, action) =>
       case types.GET_PRODUCT_CATEGORIES_SUCCESS:
         draft.loading = false;
         draft.productCategories = action.payload;
+        break;
+      case types.ADD_PRODUCT_REQUEST:
+        draft.loading = true;
+        draft.error = INITIAL_STATE.error;
+        break;
+      case types.ADD_PRODUCT_SUCCESS:
+        draft.loading = false;
+        draft.error = INITIAL_STATE.error;
+        break;
+      case types.ADD_PRODUCT_FAILURE:
+        draft.error = action.payload;
         break;
     }
   });

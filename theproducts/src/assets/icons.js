@@ -1,7 +1,11 @@
 import React from 'react';
 import {Icon} from '@ui-kitten/components';
 
-export const BackIcon = (style) => <Icon {...style} name="info-outline" />;
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+export const BackIcon = (style) => (
+  <Ionicons {...style} size={24} name="arrow-back-sharp" />
+);
 
 export const AddIcon = (style) => <Icon {...style} name="plus" />;
 
